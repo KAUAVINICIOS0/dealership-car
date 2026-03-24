@@ -3,4 +3,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def cars_home(request):
-    return HttpResponse("Welcome to the Cars Home Page!")
+    context = {
+        "name": "voyage",
+    }
+    return render(request, 'cars/index.html', context)
