@@ -9,8 +9,8 @@
     <script src='main.js'></script>
 </head>
 <body>
+
     <h1>Car</h1>
-    <p>Car Name: {{ name }}</p>
 
     <table>
         <tr>
@@ -26,5 +26,7 @@
         </tr>
         {% endfor %}
     </table>
+
+    <a href="{% url 'cars:create_car' %}">Criar carro</a>
 </body>
 </html>
