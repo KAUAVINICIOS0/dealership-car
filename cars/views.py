@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 
-def cars_home(request):
+def get_cars(request):
     context = {
-        "name": "voyage",
+        'cars': Car.objects.all()
     }
     return render(request, 'cars/index.html', context)

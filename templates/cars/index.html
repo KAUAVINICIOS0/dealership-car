@@ -12,6 +12,19 @@
     <h1>Car</h1>
     <p>Car Name: {{ name }}</p>
 
-    <a href="{% url 'admin:index' %}">Indo para eu mesmo</a>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Year</th>
+        </tr>
+        {% for car in cars %}
+        <tr>
+            <td>{{ car.name }}</td>
+            <td>{{ car.color }}</td>
+            <td>{{ car.year }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
