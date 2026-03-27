@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Car
+from .forms import CarForm
+from django.http import HttpRequest
 # Create your views here.
 
 
@@ -10,4 +12,12 @@ def get_cars(request):
 
 
 def post_car(request):
-    return render(request, 'cars/create.html')
+    if request.method == 'POST':
+        form = CarForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cars:index')
+    context = {
+        'form': CarForm()
+    }
+    return render(request, 'cars/create.html', context)
