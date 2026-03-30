@@ -23,6 +23,7 @@
             <td>{{ car.name }}</td>
             <td>{{ car.color }}</td>
             <td>{{ car.year }}</td>
+            <td><a href="{% url 'cars:delete_car' car.id %}">deletar</a></td>
         </tr>
         {% endfor %}
     </table>
