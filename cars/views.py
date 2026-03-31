@@ -26,3 +26,16 @@ def delete_car(request:HttpRequest, id):
     car = get_object_or_404(Car, id=id)
     car.delete()
     return redirect('cars:index')
+
+def update_car(request:HttpRequest, id):
+    car = get_object_or_404(Car, id=id)
+    if request.method == "POST":
+        form = CarForm(request.POST, instance=car)
+        if form.is_valid():
+            form.save()
+            return redirect('cars:index')
+    form = CarForm(instance=car)
+    context = {
+        'form': form
+    }
+    return render(request, 'cars/update.html', context)
