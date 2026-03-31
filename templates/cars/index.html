@@ -17,12 +17,14 @@
             <th>Name</th>
             <th>Color</th>
             <th>Year</th>
+            <th>Brand</th>
         </tr>
         {% for car in cars %}
         <tr>
             <td>{{ car.name }}</td>
             <td>{{ car.color }}</td>
             <td>{{ car.year }}</td>
+            <td>{{ car.brand }}</td>
             <td><a href="{% url 'cars:delete_car' car.id %}">Deletar</a></td>
             <td><a href="{% url 'cars:update_car' car.id%}">Atualizar</a></td>
         </tr>
@@ -30,5 +32,6 @@
     </table>
 
     <a href="{% url 'cars:create_car' %}">Criar</a>
+    <a href="{% url 'index' %}">Voltar</a>
 </body>
 </html>

@@ -24,6 +24,8 @@
         {% endfor %}
     </table>
 
-    <a href="{%url 'brands:create_brand'%}">Criar papai</a>
+    <a href="{% url 'brands:create_brand' %}">Criar</a>
+        <a href="{% url 'index' %}">Voltar</a>
+
 </body>
 </html>

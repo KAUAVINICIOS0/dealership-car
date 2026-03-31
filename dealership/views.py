@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def test_view(request):
-    return HttpResponse("Welcome to the Test page!")
+def index(request):
+    return render(request, 'dealership/index.html')
