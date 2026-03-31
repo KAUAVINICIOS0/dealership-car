@@ -26,3 +26,19 @@ def delete_brand(request:HttpRequest, id):
     brand = get_object_or_404(Brand, id=id)
     brand.delete()
     return redirect('brands:index')
+
+def update_brand(request:HttpRequest, id):
+    brand = get_object_or_404(Brand, id=id)
+    if request.method == "POST":
+        form = BrandForm(request.POST, instance=brand)
+        if form.is_valid():
+            form.save()
+            return redirect('brands:index')
+    form = BrandForm(instance=brand)
+    context = {
+        'form': form
+    }
+    return render(request, 'brand/update.html', context)
+    
+
+

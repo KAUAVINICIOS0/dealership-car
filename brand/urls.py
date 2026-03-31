@@ -7,5 +7,5 @@ urlpatterns  = [
     path('', views.get_brands, name='index'),
     path('create/', views.post_brand, name='create_brand'),
     path('delete/<int:id>', views.delete_brand, name='delete_brand'),
-
+    path('update/<int:id>', views.update_brand, name='update_brand'),
 ]

@@ -18,6 +18,7 @@
         <tr>
             <td>{{ brand.name }}</td>
             <td><a href="{% url 'brands:delete_brand' brand.id %}">Delete</a></td>
+            <td><a href="{% url 'brands:update_brand' brand.id %}">Update</a></td>
         </tr>
 
         {% endfor %}
